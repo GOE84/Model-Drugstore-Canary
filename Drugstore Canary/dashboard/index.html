@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Drugstore Canary - ระบบเตือนภัยโรคระบาด</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <div class="logo-icon">🏥</div>
+                    <div>
+                        <h1>Drugstore Canary</h1>
+                        <p class="subtitle">ระบบเตือนภัยโรคระบาดจากยอดขายยา</p>
+                    </div>
+                </div>
+                <div class="header-stats">
+                    <div class="stat-card">
+                        <div class="stat-value" id="totalAlerts">0</div>
+                        <div class="stat-label">Active Alerts</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="zonesAtRisk">0</div>
+                        <div class="stat-label">Zones at Risk</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-value" id="lastUpdate">--:--</div>
+                        <div class="stat-label">Last Update</div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <!-- Main Content -->
+        <main class="main-content">
+            <!-- Map Section -->
+            <section class="map-section">
+                <div class="section-header">
+                    <h2>🗺️ Geographic Heatmap - หาดใหญ่</h2>
+                    <div class="legend">
+                        <span class="legend-item normal">Normal</span>
+                        <span class="legend-item low">Low Risk</span>
+                        <span class="legend-item medium">Medium Risk</span>
+                        <span class="legend-item high">High Risk</span>
+                        <span class="legend-item critical">Critical</span>
+                    </div>
+                </div>
+                <div id="map" class="map-container"></div>
+            </section>
+
+            <!-- Alerts Feed -->
+            <section class="alerts-section">
+                <div class="section-header">
+                    <h2>🚨 Recent Alerts</h2>
+                    <button class="refresh-btn" onclick="refreshAlerts()">
+                        <span class="refresh-icon">↻</span> Refresh
+                    </button>
+                </div>
+                <div id="alertsFeed" class="alerts-feed">
+                    <!-- Alerts will be populated here -->
+                </div>
+            </section>
+
+            <!-- Charts Section -->
+            <section class="charts-section">
+                <div class="chart-container">
+                    <div class="section-header">
+                        <h2>📊 Sales Trends by Category</h2>
+                        <select id="zoneSelector" class="zone-selector" onchange="updateCharts()">
+                            <option value="">Select Zone...</option>
+                        </select>
+                    </div>
+                    <canvas id="salesChart"></canvas>
+                </div>
+
+                <div class="chart-container">
+                    <div class="section-header">
+                        <h2>📈 Anomaly Scores</h2>
+                        <select id="categorySelector" class="category-selector" onchange="updateAnomalyChart()">
+                            <option value="">Select Category...</option>
+                        </select>
+                    </div>
+                    <canvas id="anomalyChart"></canvas>
+                </div>
+            </section>
+
+            <!-- Zone Details -->
+            <section class="zone-details-section">
+                <h2>🏘️ Zone Status Overview</h2>
+                <div id="zoneGrid" class="zone-grid">
+                    <!-- Zone cards will be populated here -->
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>© 2024 Drugstore Canary | Early Warning System for Epidemic Detection</p>
+            <p class="footer-note">ระบบตรวจจับสัญญาณเตือนภัยโรคระบาดจากข้อมูลยอดขายยา</p>
+        </footer>
+    </div>
+
+    <!-- Scripts -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.js"></script>
+    <script src="dashboard.js"></script>
+</body>
+</html>

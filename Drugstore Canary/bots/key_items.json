@@ -1,0 +1,63 @@
+{
+  "diarrhea": {
+    "keywords": [
+      "ORS",
+      "ผงเกลือแร่",
+      "electrolyte",
+      "oral rehydration",
+      "loperamide",
+      "imodium"
+    ],
+    "priority": "high",
+    "outbreak_signal": "water_borne_disease"
+  },
+  "skin_infection": {
+    "keywords": [
+      "ยาทาเชื้อรา",
+      "antifungal",
+      "clotrimazole",
+      "miconazole",
+      "betadine",
+      "povidone iodine",
+      "antibiotic ointment",
+      "neosporin"
+    ],
+    "priority": "high",
+    "outbreak_signal": "post_flood_infection"
+  },
+  "fever": {
+    "keywords": [
+      "paracetamol",
+      "acetaminophen",
+      "tylenol",
+      "ibuprofen",
+      "brufen",
+      "aspirin"
+    ],
+    "priority": "medium",
+    "outbreak_signal": "flu_dengue"
+  },
+  "respiratory": {
+    "keywords": [
+      "cough syrup",
+      "ยาแก้ไอ",
+      "decongestant",
+      "pseudoephedrine",
+      "lozenges",
+      "ยาอม"
+    ],
+    "priority": "medium",
+    "outbreak_signal": "respiratory_infection"
+  },
+  "allergy": {
+    "keywords": [
+      "antihistamine",
+      "loratadine",
+      "cetirizine",
+      "zyrtec",
+      "claritine"
+    ],
+    "priority": "low",
+    "outbreak_signal": "seasonal_allergy"
+  }
+}
